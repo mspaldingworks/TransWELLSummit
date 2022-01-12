@@ -1,7 +1,6 @@
 package com.example.transwellsummit.ui
 
 import SessionViewModel
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.transwellsummit.R
 import com.example.transwellsummit.data.Session
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.NonDisposableHandle.parent
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SessionFragment : Fragment() {
@@ -27,13 +24,18 @@ class SessionFragment : Fragment() {
     private val sessionAdapter = SessionListAdapter(this::onSessionClicked)
 
 
-    private fun onSessionClicked(session: Session) {
+    private fun onSessionClicked(session: Session): Session {
+        return(session)
 
     }
 
     class SessionAdapter {
         fun setOnClickListener() {
-            TODO("Not yet implemented")
+            return(addSessionToItinerary())
+        }
+
+        private fun addSessionToItinerary() {
+            return addSessionToItinerary()
         }
 
     }
@@ -43,22 +45,21 @@ class SessionFragment : Fragment() {
     ) : ListAdapter<Session, SessionListAdapter.SessionViewHolder>(SessionItemCallback) {
 
         inner class SessionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            fun bind(session: Session) {
+            fun bind() {
                 val textView = itemView.findViewById<TextView>(0)
 
                 fun bind(session: Session) {
                     textView.text = session.title
                     itemView.setOnClickListener {
                         onSessionCLicked(session)
+                        return@setOnClickListener
                     }
                 }
-
             }
         }
 
-        override fun onCreateViewHolder(patent: ViewGroup, viewType: Int): SessionViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
 
-            val context : Context
             val layoutInflater = LayoutInflater.from(parent.context)
             val itemView = layoutInflater.inflate(R.layout.fragment_session_list, parent, false)
 
@@ -68,7 +69,7 @@ class SessionFragment : Fragment() {
 
         override fun onBindViewHolder(holder: SessionViewHolder, position: Int) {
             val session = getItem(position)
-            holder.bind(session)
+            holder.bind()
         }
     }
 
@@ -91,7 +92,7 @@ class SessionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        adapter?.setOnClickListener()
+        adapter.setOnClickListener()
 
 
         return view
@@ -104,8 +105,7 @@ class SessionFragment : Fragment() {
         recyclerView.adapter = sessionAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.sessions.observe(viewLifecycleOwner) {sessions ->
-            this
+        viewModel.sessions.observe(viewLifecycleOwner) {
         }
     }
 

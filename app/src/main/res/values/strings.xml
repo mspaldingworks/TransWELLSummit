@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TransWELLSummit</string>
+    <string name="save_to_itinerary">save_to_itinerary</string>
 </resources>

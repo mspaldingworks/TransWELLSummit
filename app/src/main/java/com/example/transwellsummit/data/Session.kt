@@ -9,5 +9,6 @@ data class Session(
     val id: Int,
     val title: String,
     val presenter: String,
-    val room: Int
+    val room: Int,
+    val favorite: Boolean,
 )
