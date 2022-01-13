@@ -19,6 +19,7 @@ object DataModule {
 
     }
     @Provides
+    @Singleton
     fun provideSessionDao(db:SessionDatabase): SessionDao {
         return db.sessionDatabase
     }

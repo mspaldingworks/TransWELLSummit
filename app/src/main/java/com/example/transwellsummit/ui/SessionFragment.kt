@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SessionFragment : Fragment() {
 
+
     var adapter: SessionAdapter = SessionAdapter()
 
     private val sessionAdapter = SessionListAdapter(this::onSessionClicked)
@@ -38,7 +39,9 @@ class SessionFragment : Fragment() {
             return addSessionToItinerary()
         }
 
+
     }
+
 
     class SessionListAdapter(
         private val onSessionCLicked:  (Session) -> Unit,

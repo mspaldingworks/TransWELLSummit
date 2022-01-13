@@ -1,7 +1,10 @@
 package com.example.transwellsummit
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MainActivity : AppCompatActivity(R.layout.activity_main)
+class MainActivity : Application(){
+
+
+}
