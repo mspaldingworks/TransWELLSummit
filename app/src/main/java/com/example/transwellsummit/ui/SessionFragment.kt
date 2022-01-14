@@ -1,6 +1,5 @@
 package com.example.transwellsummit.ui
 
-import SessionViewModel
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,10 +16,10 @@ import com.example.transwellsummit.data.Session
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
+
 class SessionFragment : Fragment() {
 
-
-    var adapter: SessionAdapter = SessionAdapter()
+    private var adapter: SessionAdapter = SessionAdapter()
 
     private val sessionAdapter = SessionListAdapter(this::onSessionClicked)
 
@@ -48,18 +47,16 @@ class SessionFragment : Fragment() {
     ) : ListAdapter<Session, SessionListAdapter.SessionViewHolder>(SessionItemCallback) {
 
         inner class SessionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            fun bind() {
-                val textView = itemView.findViewById<TextView>(0)
+            fun bind(session: Session) {
+                val textView = itemView.findViewById<TextView>(R.id.imv_session_list)
 
-                fun bind(session: Session) {
                     textView.text = session.title
                     itemView.setOnClickListener {
                         onSessionCLicked(session)
-                        return@setOnClickListener
                     }
                 }
             }
-        }
+
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionViewHolder {
 
@@ -72,7 +69,8 @@ class SessionFragment : Fragment() {
 
         override fun onBindViewHolder(holder: SessionViewHolder, position: Int) {
             val session = getItem(position)
-            holder.bind()
+            holder.bind(session)
+
         }
     }
 

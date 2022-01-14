@@ -8,7 +8,7 @@
     tools:context="com.example.transwellsummit.ui.SessionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/imv_workshop_list"
+        android:id="@+id/imv_session_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="3dp"
