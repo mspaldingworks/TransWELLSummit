@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sessionFragment">
+
+    <fragment
+        android:id="@+id/sessionFragment"
+        android:name="com.example.transwellsummit.ui.SessionFragment"
+        android:label="fragment_session_list"
+        tools:layout="@layout/fragment_session_list" >
+        <action
+            android:id="@+id/action_sessionFragment_to_hilt_SessionFragment"
+            app:destination="@id/hilt_SessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hilt_SessionFragment"
+        android:name="com.example.transwellsummit.ui.Hilt_SessionFragment"
+        android:label="Hilt_SessionFragment" />
+</navigation>

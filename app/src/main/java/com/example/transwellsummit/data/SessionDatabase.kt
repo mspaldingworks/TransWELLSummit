@@ -14,6 +14,7 @@ abstract class SessionDatabase: RoomDatabase() {
 
     abstract val sessionDatabase: SessionDao
 
+
     companion object {
         private var instance: SessionDatabase? = null
 
@@ -23,10 +24,14 @@ abstract class SessionDatabase: RoomDatabase() {
             ).build()
             instance = newInstance
             return newInstance
+
+
         }
 
         fun getInstance(context: Context): SessionDatabase {
             return instance ?: createInstance(context)
+
+
         }
 
 

@@ -17,12 +17,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 
-class SessionFragment : Fragment() {
+class SessionFragment : Fragment(R.layout.fragment_session_list) {
 
     private var adapter: SessionAdapter = SessionAdapter()
 
     private val sessionAdapter = SessionListAdapter(this::onSessionClicked)
-
 
     private fun onSessionClicked(session: Session): Session {
         return(session)
@@ -30,6 +29,7 @@ class SessionFragment : Fragment() {
     }
 
     class SessionAdapter {
+
         fun setOnClickListener() {
             return(addSessionToItinerary())
         }
@@ -64,6 +64,7 @@ class SessionFragment : Fragment() {
             val itemView = layoutInflater.inflate(R.layout.fragment_session_list, parent, false)
 
             return SessionViewHolder(itemView)
+
         }
 
 
@@ -94,9 +95,9 @@ class SessionFragment : Fragment() {
     ): View? {
 
         adapter.setOnClickListener()
-
-
         return view
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -109,6 +110,7 @@ class SessionFragment : Fragment() {
         viewModel.sessions.observe(viewLifecycleOwner) {
         }
     }
-
 }
+
+
 

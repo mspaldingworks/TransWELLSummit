@@ -10,6 +10,9 @@ interface SessionDao {
     fun readAllData(): Flow<List<Session>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addSessionToItinerary(session: Session)
-    
+    suspend fun addSessionToItinerary(dish: Session): Long
+
+    //@Query("SELECT * FROM user_table")
+    //suspend fun deleteSessionFromItinerary()
+
 }
