@@ -9,7 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TransWELLSummit"
         android:fullBackupOnly="true"
-        android:allowBackup="true">
+        android:allowBackup="true"
+        >
         <activity
             android:name="com.example.transwellsummit.MainActivity"
             android:exported="true">

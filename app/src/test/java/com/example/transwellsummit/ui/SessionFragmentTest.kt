@@ -11,7 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
- class SessionFragmentTest : ViewModel() {
+class SessionFragmentTest : ViewModel() {
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
@@ -31,5 +31,3 @@ import org.junit.Test
     }
 
 }
-
-
